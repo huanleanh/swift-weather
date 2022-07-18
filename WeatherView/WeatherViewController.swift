@@ -26,6 +26,11 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         indicator.isHidden = true
         setUpBindings()
+        setUpUI()
+    }
+    
+    private func setUpUI() {
+        //tableView.layer.cor
         tableView.register(UINib(nibName: "CityViewCell", bundle: nil), forCellReuseIdentifier: Indentifier.key)
         tableView.delegate = self
         tableView.dataSource = self
