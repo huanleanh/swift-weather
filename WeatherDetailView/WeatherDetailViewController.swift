@@ -10,14 +10,14 @@ import UIKit
 import Combine
 
 class WeatherDetailViewController: UIViewController {
-    @IBOutlet weak private var weatherIcon: UIImageView!
-    @IBOutlet weak private var minDeg: UILabel!
-    @IBOutlet weak private var maxDeg: UILabel!
+    @IBOutlet weak private var weatherImg: UIImageView!
+    @IBOutlet weak private var minDegLbl: UILabel!
+    @IBOutlet weak private var maxDegLbl: UILabel!
     @IBOutlet weak private var descriptionLbl: UILabel!
     
     var viewModel: WeatherDetailViewModel!
     private var cancelable = [AnyCancellable]()
-    var weatherService: WeatherServiceProtocol?
+    private var weatherService: WeatherServiceProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +28,10 @@ class WeatherDetailViewController: UIViewController {
     private func setUpView() {
         let index = self.viewModel.indexPath.row
         let list = self.viewModel.weather.list
-        self.minDeg.text = list[index].temp.min.description
-        self.maxDeg.text = list[index].temp.max.description
+        self.minDegLbl.text = list[index].temp.min.description
+        self.maxDegLbl.text = list[index].temp.max.description
         self.descriptionLbl.text = list[index].weather[0].description.description
-        self.weatherIcon.image = weatherService?.downloadIconWith(iconValue: list[index].weather[0].icon.description)
+        self.weatherImg.image = weatherService?.downloadIconWith(iconValue: list[index].weather[0].icon.description)
     }
     
 }

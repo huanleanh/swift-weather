@@ -30,15 +30,10 @@ class WeatherViewController: UIViewController {
     }
     
     private func setUpUI() {
-        //tableView.layer.cor
         tableView.register(UINib(nibName: "CityViewCell", bundle: nil), forCellReuseIdentifier: Indentifier.key)
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-//    override func loadView() {
-//        view = contentView
-//    }
     
     private func setUpBindings() {
         func bindViewToViewModel() {
@@ -62,17 +57,17 @@ class WeatherViewController: UIViewController {
                 switch state {
                 case .loading:
                     self?.indicator.isHidden = false
-//                    self?.indicator.startAnimating()
+                    self?.indicator.startAnimating()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self?.indicator.isHidden = true
-//                        self?.indicator.stopAnimating()
+                        self?.indicator.stopAnimating()
                     }
                 case .finishedLoading:
                     self?.indicator.isHidden = true
-//                    self?.indicator.stopAnimating()
+                    self?.indicator.stopAnimating()
                 case .error:
                     self?.indicator.isHidden = true
-//                    self?.indicator.stopAnimating()
+                    self?.indicator.stopAnimating()
                     self?.tableView.reloadData()
                 }
             }
@@ -86,22 +81,6 @@ class WeatherViewController: UIViewController {
         bindViewToViewModel()
         bindViewModelToView()
     }
-    
-    private func showError(_ error: Error) {
-        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default) { [unowned self] _ in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-
-    private func setAccessibility() {
-        self.navigationItem.isAccessibilityElement = true
-        self.navigationItem.accessibilityLabel = "Weather Forecast"
-        searchBar.searchTextField.isAccessibilityElement = true
-    }
-    
 }
 
 extension WeatherViewController : UITableViewDataSource, UITableViewDelegate {
@@ -115,7 +94,6 @@ extension WeatherViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.estimatedRowHeight = 500
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Indentifier.key, for: indexPath) as? CityViewCell else {
             return UITableViewCell()
         }
@@ -127,7 +105,6 @@ extension WeatherViewController : UITableViewDataSource, UITableViewDelegate {
         cell.updateUIValue(name: "max", value: item?.temp.max.description)
         cell.updateUIValue(name: "humidity", value: item?.humidity.description)
         cell.updateUIValue(name: "description", value: item?.weather[0].description.description)
-        
         cell.loadWheatherIconFrom(iconValue: item?.weather[0].icon.description)
         return cell
     }
@@ -136,7 +113,7 @@ extension WeatherViewController : UITableViewDataSource, UITableViewDelegate {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "WeatherDetailViewController") as? WeatherDetailViewController else {
             return
         }
-        vc.viewModel = viewModel.viewModelForDetail(indexPath: indexPath)
+        vc.viewModel = viewModel.weatherViewModelForDetail(indexPath: indexPath)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

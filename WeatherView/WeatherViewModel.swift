@@ -15,19 +15,14 @@ enum WeatherViewModelState {
 }
 
 final class WeatherViewModel {
-    enum Section { case players }
     
     @Published var searchText: String = "SaiGon"
-//    @Published private(set) var weather: [Weather] = []
-//    @Published private(set) var city: City?
-    
-    @Published private(set) var weatherInfo: WeatherList?
+    @Published private(set) var weatherInfo: WeatherObj?
     @Published private(set) var state: WeatherViewModelState = .loading
-    
     
     private let weatherService: WeatherServiceProtocol
     private var bindings = Set<AnyCancellable>()
-    let searchResult = PassthroughSubject<Void, Error>()
+    private let searchResult = PassthroughSubject<Void, Error>()
     
     init(weatherService: WeatherServiceProtocol = WeatherService()) {
         self.weatherService = weatherService
@@ -60,10 +55,10 @@ final class WeatherViewModel {
                 switch result {
                 case .success( let weatherInfo):
                     self.weatherInfo = weatherInfo
-//                    self.city = city
                     self.searchResult.send()
                     self.state = .finishedLoading
                 case .failure(let error):
+                    self.weatherInfo?.list = []
                     self.searchResult.send(completion: .failure(error))
                     self.state = .error(error)
                     return
@@ -72,7 +67,7 @@ final class WeatherViewModel {
         }
     }
     
-    func viewModelForDetail(indexPath :IndexPath) -> WeatherDetailViewModel {
+    func weatherViewModelForDetail(indexPath :IndexPath) -> WeatherDetailViewModel {
         let wheather = weatherInfo
         return WeatherDetailViewModel(weather: wheather!, indexPath: indexPath)
         

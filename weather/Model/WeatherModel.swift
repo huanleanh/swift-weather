@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct WeatherList: Codable {
+struct WeatherObj: Codable {
     var list: [Weather]
     var city: City
 }

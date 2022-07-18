@@ -17,28 +17,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Hwe-do-yiK">
-                                <rect key="frame" x="0.0" y="186" width="414" height="676"/>
+                                <rect key="frame" x="0.0" y="130" width="414" height="732"/>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-hB-gEE">
-                                <rect key="frame" x="0.0" y="142" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="lnM-rh-9Bc"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" id="msm-TK-Mc7">
                                 <rect key="frame" x="0.0" y="426" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-hB-gEE">
+                                <rect key="frame" x="10" y="70" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mZJ-qo-zKD"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Hwe-do-yiK" firstAttribute="top" secondItem="yJN-hB-gEE" secondAttribute="bottom" id="SiH-Cp-m97"/>
-                            <constraint firstItem="yJN-hB-gEE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TS3-bA-3Hy"/>
-                            <constraint firstItem="yJN-hB-gEE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cua-y3-gab"/>
+                            <constraint firstItem="yJN-hB-gEE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="10" id="CRy-0y-32q"/>
+                            <constraint firstItem="yJN-hB-gEE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="70" id="bSg-1F-vB6"/>
+                            <constraint firstItem="yJN-hB-gEE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="c8i-7f-WGI"/>
+                            <constraint firstItem="Hwe-do-yiK" firstAttribute="top" secondItem="yJN-hB-gEE" secondAttribute="bottom" constant="10" id="grV-Qt-mb3"/>
                             <constraint firstItem="Hwe-do-yiK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kqL-B6-Mgw"/>
-                            <constraint firstItem="yJN-hB-gEE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="54" id="vGS-65-trR"/>
                             <constraint firstItem="Hwe-do-yiK" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="voh-Op-5cg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hwe-do-yiK" secondAttribute="trailing" id="xt1-Yk-rYl"/>
                         </constraints>
@@ -140,9 +140,9 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLbl" destination="fPw-ZP-rGh" id="892-O9-uHn"/>
-                        <outlet property="maxDeg" destination="KYP-W2-4SX" id="NBG-0R-VrW"/>
-                        <outlet property="minDeg" destination="ekN-e9-pch" id="Aai-BY-D5X"/>
-                        <outlet property="weatherIcon" destination="CiT-Bz-c02" id="loK-N7-gPl"/>
+                        <outlet property="maxDegLbl" destination="KYP-W2-4SX" id="NBG-0R-VrW"/>
+                        <outlet property="minDegLbl" destination="ekN-e9-pch" id="Aai-BY-D5X"/>
+                        <outlet property="weatherImg" destination="CiT-Bz-c02" id="loK-N7-gPl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gc4-M5-VNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

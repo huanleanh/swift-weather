@@ -8,13 +8,13 @@
 import UIKit
 
 class CityViewCell: UITableViewCell {
-    @IBOutlet weak private var MinDeg: UILabel!
-    @IBOutlet weak private var MaxDeg: UILabel!
-    @IBOutlet weak private var Description: UILabel!
-    @IBOutlet weak private var Humidity: UILabel!
-    @IBOutlet weak private var CityName: UILabel!
-    @IBOutlet weak private var weatherIcon: UIImageView!
-    @IBOutlet weak var DateText: UILabel!
+    @IBOutlet weak private var minDegLbl: UILabel!
+    @IBOutlet weak private var maxDegLbl: UILabel!
+    @IBOutlet weak private var descriptionLbl: UILabel!
+    @IBOutlet weak private var humidityLbl: UILabel!
+    @IBOutlet weak private var cityNameLbl: UILabel!
+    @IBOutlet weak private var weatherImg: UIImageView!
+    @IBOutlet weak var dateLbl: UILabel!
     
     private var weatherService: WeatherServiceProtocol?
     override func awakeFromNib() {
@@ -22,28 +22,24 @@ class CityViewCell: UITableViewCell {
         // Initialization code
         weatherService = WeatherService()
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//    }
     
     func loadWheatherIconFrom(iconValue: String?) {
         DispatchQueue.main.async {
-            self.weatherIcon.image = self.weatherService?.downloadIconWith(iconValue: iconValue ?? "")
+            self.weatherImg.image = self.weatherService?.downloadIconWith(iconValue: iconValue ?? "")
         }
     }
     
     func setDate(date: String) {
-        DateText.text = date
+        dateLbl.text = date
     }
     
     func updateUIValue(name: String, value: String?) {
         switch name {
-        case "min": MinDeg.text = value ?? "" + "˚C"
-        case "max": MaxDeg.text = value ?? "" + "˚C"
-        case "humidity": Humidity.text = value ?? "" + "%"
-        case "description": Description.text = value ?? ""
-        case "cityName": CityName.text = value ?? ""
+        case "min": minDegLbl.text = value ?? "" + "˚C"
+        case "max": maxDegLbl.text = value ?? "" + "˚C"
+        case "humidity": humidityLbl.text = value ?? "" + "%"
+        case "description": descriptionLbl.text = value ?? ""
+        case "cityName": cityNameLbl.text = value ?? ""
         default:
             return
         }

@@ -93,13 +93,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" red="0.34687010769999999" green="0.34687010769999999" blue="0.34687010769999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
-                <outlet property="CityName" destination="dLn-b4-c37" id="GLC-6I-Ys5"/>
-                <outlet property="DateText" destination="4q3-MM-IB1" id="jzz-MI-3Cm"/>
-                <outlet property="Description" destination="0i8-cb-cCg" id="Q9R-fA-CCx"/>
-                <outlet property="Humidity" destination="YQs-dS-Qn2" id="C1l-ti-6BE"/>
-                <outlet property="MaxDeg" destination="rvh-Gp-fwv" id="3D9-1W-fQi"/>
-                <outlet property="MinDeg" destination="509-Oc-7FS" id="3z1-GG-YJC"/>
-                <outlet property="weatherIcon" destination="dRf-7i-tvr" id="40v-0k-Sv7"/>
+                <outlet property="cityNameLbl" destination="dLn-b4-c37" id="GLC-6I-Ys5"/>
+                <outlet property="dateLbl" destination="4q3-MM-IB1" id="jzz-MI-3Cm"/>
+                <outlet property="descriptionLbl" destination="0i8-cb-cCg" id="Q9R-fA-CCx"/>
+                <outlet property="humidityLbl" destination="YQs-dS-Qn2" id="C1l-ti-6BE"/>
+                <outlet property="maxDegLbl" destination="rvh-Gp-fwv" id="3D9-1W-fQi"/>
+                <outlet property="minDegLbl" destination="509-Oc-7FS" id="3z1-GG-YJC"/>
+                <outlet property="weatherImg" destination="dRf-7i-tvr" id="40v-0k-Sv7"/>
             </connections>
             <point key="canvasLocation" x="194.20289855072465" y="29.129464285714285"/>
         </tableViewCell>

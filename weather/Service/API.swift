@@ -50,12 +50,12 @@ enum ServiceError: Error {
 }
 
 protocol WeatherServiceProtocol {
-    func getWeather(city: String?, _ promise: @escaping (Result<WeatherList, Error>) -> Void)
+    func getWeather(city: String?, _ promise: @escaping (Result<WeatherObj, Error>) -> Void)
     func downloadIconWith(iconValue :String) -> UIImage
 }
 
 class WeatherService: WeatherServiceProtocol {
-    func getWeather(city: String?, _ promise: @escaping ((Result<WeatherList, Error>) -> Void)){
+    func getWeather(city: String?, _ promise: @escaping ((Result<WeatherObj, Error>) -> Void)){
         guard let urlRequest = self.getURLRequestByCity(city: city) else {
             promise(.failure(ServiceError.urlRequest))
             return
@@ -67,7 +67,7 @@ class WeatherService: WeatherServiceProtocol {
             }
             
             do {
-                let parseJson = try JSONDecoder().decode(WeatherList.self, from: data)
+                let parseJson = try JSONDecoder().decode(WeatherObj.self, from: data)
                 promise(.success(parseJson))
             } catch{
                 promise(.failure(ServiceError.decode))
