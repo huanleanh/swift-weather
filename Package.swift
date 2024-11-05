@@ -5,10 +5,16 @@ import PackageDescription
 
 let package = Package(
     name: "swift-weather",
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .executableTarget(
-            name: "swift-weather"),
+     targets: [
+        .target(
+            name: "weather",  
+            dependencies: [],
+            path: "Sources"),      
+
+        .testTarget(
+            name: "Tests", 
+            dependencies: ["weather"], 
+            path: "Tests")             
     ]
+
 )
