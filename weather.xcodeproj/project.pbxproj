@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032278062CDA361E00F39D88 /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 032278052CDA361E00F39D88 /* AsyncAlgorithms */; };
 		BB144B2C28854211006FB2C2 /* WeatherDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB144B2B28854211006FB2C2 /* WeatherDetailViewModel.swift */; };
 		BB144B2E28854240006FB2C2 /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB144B2D28854240006FB2C2 /* WeatherDetailViewController.swift */; };
 		BB183570287BC9D5005120EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB18356F287BC9D5005120EF /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032278062CDA361E00F39D88 /* AsyncAlgorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +229,9 @@
 			dependencies = (
 			);
 			name = weather;
+			packageProductDependencies = (
+				032278052CDA361E00F39D88 /* AsyncAlgorithms */,
+			);
 			productName = weather;
 			productReference = BB18356C287BC9D5005120EF /* weather.app */;
 			productType = "com.apple.product-type.application";
@@ -299,6 +304,9 @@
 				Base,
 			);
 			mainGroup = BB183563287BC9D5005120EF;
+			packageReferences = (
+				032278042CDA361E00F39D88 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */,
+			);
 			productRefGroup = BB18356D287BC9D5005120EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -699,6 +707,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		032278042CDA361E00F39D88 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-async-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		032278052CDA361E00F39D88 /* AsyncAlgorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 032278042CDA361E00F39D88 /* XCRemoteSwiftPackageReference "swift-async-algorithms" */;
+			productName = AsyncAlgorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BB183564287BC9D5005120EF /* Project object */;
 }
